@@ -1,23 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/portfolio/Header";
+import { Hero, About, Skills, Contact, Footer } from "@/components/portfolio/Sections";
+import { Projects } from "@/components/portfolio/Projects";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Sammi — Frontend & Full-Stack Developer" },
+      { name: "description", content: "Sammi builds modern web applications with React and Next.js. See Nexa IQ, Naturly and Virtual Chef." },
+      { property: "og:title", content: "Sammi — Frontend & Full-Stack Developer" },
+      { property: "og:description", content: "Portfolio featuring Nexa IQ, Naturly and Virtual Chef — clean interfaces and complete web applications." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-card focus:px-4 focus:py-2">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

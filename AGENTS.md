@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Portfolio content (projects, skills, screenshots, placeholder contact links) lives in src/components/portfolio/data.ts so copy and assets are edited in one place.
