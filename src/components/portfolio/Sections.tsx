@@ -18,7 +18,7 @@ export function Hero() {
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-sm">
           <p className="text-muted-foreground">Business perspective. Product-minded development.</p>
-          <p className="font-medium">React <span className="mx-2 text-border">/</span> Next.js <span className="mx-2 text-border">/</span> TypeScript</p>
+          <p className="font-medium">React <span className="mx-2 text-border">/</span> Next.js <span className="mx-2 text-border">/</span> JavaScript<span className="mx-2 text-border">/</span> TypeScript</p>
         </div>
       </div>
     </section>
@@ -31,7 +31,7 @@ export function About() {
       <div className="container-page">
         <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-end">
           <SectionHeader eyebrow="01 / About" title="A considered path into development." />
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">I’m {identity.name} — a frontend and full-stack developer bringing a substantial business background and a deliberate commitment to modern web development.</p>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">I’m {identity.name} — frontend and full-stack developer combining extensive experience in complex business environments with modern web development skills..</p>
         </div>
         <div className="mt-12 grid gap-9 md:grid-cols-3 md:gap-8">
           {journey.map((step, i) => (
@@ -72,7 +72,7 @@ export function Contact() {
         <div>
           <p className="eyebrow">04 / Contact</p>
           <h2 className="mt-4 text-4xl font-semibold md:text-6xl">Let’s Connect</h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">I’m always interested in connecting with people working on interesting products and exploring new opportunities in frontend and full-stack development.</p>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">I’m always interested in connecting with people building meaningful digital products and exploring opportunities where I can contribute as a frontend or full-stack developer.</p>
         </div>
         <div className="space-y-5 lg:justify-self-end">
           <a href={`mailto:${identity.email}`} className="block text-xl font-medium decoration-primary underline-offset-4 hover:underline">{identity.email}</a>

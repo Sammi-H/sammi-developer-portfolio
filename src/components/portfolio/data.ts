@@ -1,4 +1,3 @@
-
 export const identity = {
   name: "Sammi Habib",
   email: "sammi83@live.se",
@@ -13,7 +12,7 @@ export const projectLinks = {
 };
 
 export const heroDescription =
-  "I build modern web applications with a focus on clean interfaces, thoughtful user experiences and practical solutions. Combining my background in complex business environments with modern web development, I enjoy turning ideas into functional digital products.";
+  "I build modern web applications with React and Next.js, focusing on clean interfaces, intuitive user experiences and practical solutions. With a background in complex business systems, I bring both technical thinking and a product-oriented mindset to building digital products.";
 
 export const journey = [
   {

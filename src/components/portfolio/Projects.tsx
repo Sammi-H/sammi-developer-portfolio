@@ -10,10 +10,28 @@ function useLightbox() {
 }
 
 function Stack({ items }: { items: string[] }) {
-  return <ul className="flex flex-wrap gap-2">{items.map((t) => <Tag key={t}>{t}</Tag>)}</ul>;
+  return (
+    <ul className="flex flex-wrap gap-2">
+      {items.map((t) => (
+        <Tag key={t}>{t}</Tag>
+      ))}
+    </ul>
+  );
 }
 
-function ProjectHead({ num, label, title, subtitle, desc }: { num: string; label: string; title: string; subtitle: string; desc: string }) {
+function ProjectHead({
+  num,
+  label,
+  title,
+  subtitle,
+  desc,
+}: {
+  num: string;
+  label: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+}) {
   return (
     <div>
       <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-normal">
@@ -40,20 +58,26 @@ function Nexa() {
           label="Featured project"
           title="Nexa IQ"
           subtitle="B2B Lead Generation Platform"
-          desc="An independently developed SaaS platform that helps businesses discover relevant companies worldwide through category-based and geographic searches."
+          desc="An independently developed SaaS platform that helps businesses discover and prioritize relevance-ranked business leads worldwide through category-based and geographic searches."
         />
         <div className="lg:text-right">
-          <p className="text-xl font-semibold italic text-foreground">“Stop searching. Start discovering.”</p>
-          <Button asChild className="group mt-5 h-11 px-5"><a href={projectLinks.nexa}>
-            Explore Project <Arrow />
-          </a></Button>
+          <p className="text-xl font-semibold italic text-foreground">
+            “Stop searching. Start discovering.”
+          </p>
+          <Button asChild className="group mt-5 h-11 px-5">
+            <a href={projectLinks.nexa}>
+              Explore Project <Arrow />
+            </a>
+          </Button>
         </div>
       </div>
 
       <div className="mt-10">
         <Screenshot shot={main} onOpen={() => lb.setIndex(0)} priority />
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
-          {rest.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i + 1)} chrome={false} />)}
+          {rest.map((s, i) => (
+            <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i + 1)} chrome={false} />
+          ))}
         </div>
       </div>
 
@@ -61,27 +85,61 @@ function Nexa() {
         <div className="space-y-10">
           <InfoBlock label="Overview">
             <div className="space-y-3 leading-relaxed text-muted-foreground">
-              <p>Nexa IQ is a B2B lead-generation platform designed to make business discovery simpler and more focused.</p>
-              <p>Users can search for businesses based on industry categories and geographic locations, explore structured results and export leads. The goal is a streamlined alternative to more complex lead-generation platforms.</p>
+              <p>
+                Nexa IQ is a B2B lead-generation platform designed to make business discovery
+                simpler and more focused.
+              </p>
+              <p>
+                Users can search for businesses based on industry categories and geographic
+                locations, explore relevance-ranked results and export leads. The goal is a
+                streamlined alternative to more complex lead-generation platforms.
+              </p>
             </div>
           </InfoBlock>
           <InfoBlock label="Key features">
-            <FeatureList items={["Search for businesses by category and location", "Global business discovery", "Category autocomplete", "Location autocomplete", "Relevance filtering to improve search results", "Structured lead results", "CSV export", "User authentication and accounts"]} />
+            <FeatureList
+              items={[
+                "Search for businesses by category and location",
+                "Global business discovery",
+                "Category autocomplete",
+                "Location autocomplete",
+                "Relevance-based lead ranking and filtering",
+                "Structured lead results",
+                "CSV export",
+                "User authentication and accounts",
+              ]}
+            />
           </InfoBlock>
         </div>
         <div className="space-y-10">
           <InfoBlock label="Technical implementation">
             <p className="leading-relaxed text-muted-foreground">
-              Combines external business data with custom search and relevance logic, using geographic and category datasets to power autocomplete and more accurate search input. Covers frontend, server-side functionality, API integration, database and authentication, search logic and deployment.
+              Combines external business data with custom search and relevance-ranking logic to help
+              users discover and prioritize relevant business leads. Geographic and
+              industry-category datasets power autocomplete and more accurate searches. Covers
+              frontend development, server-side functionality, API integration, database management,
+              authentication, search logic and deployment.
             </p>
           </InfoBlock>
           <InfoBlock label="My role">
             <p className="leading-relaxed text-muted-foreground">
-              Independently developed from concept to implementation — product planning, UI, frontend, backend functionality, API and database integration, search and relevance filtering, autocomplete and deployment.
+              Independently developed from concept to implementation — product planning, UI/UX,
+              frontend and backend development, API and database integration, search and
+              relevance-based lead ranking, autocomplete and deployment.
             </p>
           </InfoBlock>
           <InfoBlock label="Technology">
-            <Stack items={["Next.js", "React", "JavaScript", "Supabase", "Google Places API", "GeoNames", "Vercel"]} />
+            <Stack
+              items={[
+                "Next.js",
+                "React",
+                "JavaScript",
+                "Supabase",
+                "Google Places API",
+                "GeoNames",
+                "Vercel",
+              ]}
+            />
           </InfoBlock>
         </div>
       </div>
@@ -93,7 +151,10 @@ function Nexa() {
 function Naturly() {
   const lb = useLightbox();
   return (
-    <article id="naturly" className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
+    <article
+      id="naturly"
+      className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14"
+    >
       <div className="space-y-8 lg:sticky lg:top-24 lg:self-start">
         <ProjectHead
           num="02"
@@ -103,18 +164,46 @@ function Naturly() {
           desc="An Airbnb-inspired full-stack booking application where users can discover accommodation and experiences, manage reservations and explore destinations."
         />
         <p className="leading-relaxed text-muted-foreground">
-          An individual project from my frontend development education, covering destinations like Åre, Sälen, Vemdalen, Hemavan and Idre.{" "}
-          <span className="font-semibold text-foreground">Graded Väl godkänt.</span>
+          An individual project from my frontend development education, covering destinations like
+          Åre, Sälen, Vemdalen, Hemavan and Idre.{" "}
+          <span className="font-semibold text-foreground">Awarded Pass with Distinction.</span>
         </p>
         <InfoBlock label="Key features">
-          <FeatureList items={["Destination search and suggestions", "Accommodation listings and detail pages", "Guest selection incl. adults, children and pets", "Pet-friendly indicators", "Favorites for stays and experiences", "Booking flow with dates and guests", "Booking summary with price calculations", "Registration, login and protected booking", "My Bookings page", "Experience discovery and detail pages"]} />
+          <FeatureList
+            items={[
+              "Destination search and suggestions",
+              "Accommodation listings and detail pages",
+              "Guest selection incl. adults, children and pets",
+              "Pet-friendly indicators",
+              "Favorites for stays and experiences",
+              "Booking flow with dates and guests",
+              "Booking summary with price calculations",
+              "Registration, login and protected booking",
+              "My Bookings page",
+              "Experience discovery and detail pages",
+            ]}
+          />
         </InfoBlock>
         <InfoBlock label="Technology">
-          <Stack items={["Next.js", "React", "JavaScript", "TypeScript", "HTML5", "CSS", "MongoDB", "React Context API", "Next.js API routes"]} />
+          <Stack
+            items={[
+              "Next.js",
+              "React",
+              "JavaScript",
+              "TypeScript",
+              "HTML5",
+              "CSS",
+              "MongoDB",
+              "React Context API",
+              "Next.js API routes",
+            ]}
+          />
         </InfoBlock>
-        <Button asChild variant="outline" className="group h-11"><a href={projectLinks.naturly} target="_blank" rel="noreferrer">
-          View on GitHub <Arrow />
-        </a></Button>
+        <Button asChild variant="outline" className="group h-11">
+          <a href={projectLinks.naturly} target="_blank" rel="noreferrer">
+            View on GitHub <Arrow />
+          </a>
+        </Button>
       </div>
 
       <div className="space-y-8">
@@ -125,16 +214,25 @@ function Naturly() {
             </li>
           ))}
         </ol>
-        {naturlyShots.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />)}
+        {naturlyShots.map((s, i) => (
+          <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />
+        ))}
         <div className="grid gap-6 border-t border-border pt-6 md:grid-cols-2">
           <InfoBlock label="Booking functionality">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Choose dates and guests, review details and complete a simulated booking. The summary shows price per night, number of nights and total. Payment methods are shown in the interface, but payment is simulated — no real payment processing.
+              Choose dates and guests, explore available accommodations and filter for pet-friendly
+              stays. Follow the booking flow from selecting your accommodation to reviewing your
+              reservation details. A clear booking summary displays the price per night, number of
+              nights and total cost before proceeding to confirmation.
             </p>
           </InfoBlock>
           <InfoBlock label="My role">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Built independently from planning, UI/UX and Figma wireframes to frontend, backend, database, authentication (bcrypt hashing, session-based route protection) and booking. Informal user feedback shaped clearer navigation and the paw icon for pet-friendly stays.
+              Independently designed and developed the project from concept to implementation,
+              covering product planning, UI/UX, Figma wireframes, frontend and backend development,
+              database integration, authentication with bcrypt password hashing and session-based
+              route protection, and the booking flow. Informal user feedback informed UX decisions,
+              including clearer navigation and a paw icon to highlight pet-friendly accommodations.
             </p>
           </InfoBlock>
         </div>
@@ -155,23 +253,50 @@ function Chef() {
             label="Personal project"
             title="Virtual Chef"
             subtitle="Recipe Discovery Application"
-            desc="A JavaScript application that helps users discover recipes based on ingredients they already have."
+            desc="Virtual Chef is a recipe discovery application that helps users find recipes based on ingredients they already have."
           />
           <p className="leading-relaxed text-muted-foreground">
-            Built independently to explore JavaScript, API integration and dynamic interfaces. Enter ingredients — like fish and potatoes — and get relevant recipes. I handled API integration, input handling, dynamic rendering and responsive styling.
+            Users can enter available ingredients, such as fish and potatoes, and explore matching
+            recipes retrieved through an external API. Developed independently, with responsibility
+            for API integration, JavaScript logic, user input handling, dynamic content rendering
+            and responsive design.
           </p>
           <InfoBlock label="Key features">
-            <FeatureList items={["Ingredient-based recipe search", "Dynamic search results", "Recipe images and summaries", "Recipe detail pages", "Full cooking instructions", "Responsive interface"]} />
+            <FeatureList
+              items={[
+                "Ingredient-based recipe search",
+                "Dynamic search results",
+                "Recipe images and summaries",
+                "Recipe detail pages",
+                "Full cooking instructions",
+                "Responsive interface",
+              ]}
+            />
           </InfoBlock>
           <InfoBlock label="Technology">
-            <Stack items={["HTML5", "CSS3", "JavaScript", "Spoonacular API", "REST API integration", "DOM manipulation", "Async data handling", "Event handling"]} />
+            <Stack
+              items={[
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Spoonacular API",
+                "REST API integration",
+                "DOM manipulation",
+                "Async data handling",
+                "Event handling",
+              ]}
+            />
           </InfoBlock>
-          <Button asChild variant="outline" className="group h-11"><a href={projectLinks.chef} target="_blank" rel="noreferrer">
-            View on GitHub <Arrow />
-          </a></Button>
+          <Button asChild variant="outline" className="group h-11">
+            <a href={projectLinks.chef} target="_blank" rel="noreferrer">
+              View on GitHub <Arrow />
+            </a>
+          </Button>
         </div>
         <div className="space-y-6">
-          {chefShots.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />)}
+          {chefShots.map((s, i) => (
+            <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />
+          ))}
         </div>
       </div>
       <Lightbox shots={chefShots} index={lb.index} onChange={lb.setIndex} />
