@@ -6,9 +6,9 @@ import { Projects } from "@/components/portfolio/Projects";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sammi — Frontend & Full-Stack Developer" },
-      { name: "description", content: "Sammi builds modern web applications with React and Next.js. See Nexa IQ, Naturly and Virtual Chef." },
-      { property: "og:title", content: "Sammi — Frontend & Full-Stack Developer" },
+      { title: "Sammi Habib — Frontend & Full-Stack Developer" },
+      { name: "description", content: "Sammi Habib builds modern web applications with React and Next.js. See Nexa IQ, Naturly and Virtual Chef." },
+      { property: "og:title", content: "Sammi Habib — Frontend & Full-Stack Developer" },
       { property: "og:description", content: "Portfolio featuring Nexa IQ, Naturly and Virtual Chef — clean interfaces and complete web applications." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { btnPrimary } from "./ui";
+import { Button } from "@/components/ui/button";
+import { identity } from "./data";
 
 const links = [
   { id: "about", label: "About" },
@@ -34,12 +35,12 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-background"
+        scrolled ? "border-border bg-background/95" : "border-transparent bg-background"
       }`}
     >
       <nav aria-label="Main" className="container-page flex h-16 items-center justify-between">
-        <a href="#top" className="text-lg font-extrabold tracking-tight">
-          Sammi<span className="text-primary">.</span>
+        <a href="#top" className="text-lg font-extrabold tracking-normal">
+          {identity.name}<span className="text-primary">.</span>
         </a>
         <div className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
@@ -47,17 +48,17 @@ export function Header() {
               key={l.id}
               href={`#${l.id}`}
               aria-current={active === l.id ? "true" : undefined}
-              className={`rounded-full px-3.5 py-2 text-sm font-medium transition ${
+              className={`rounded-md px-3.5 py-2 text-sm font-medium transition ${
                 active === l.id ? "bg-primary-soft text-accent-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {l.label}
             </a>
           ))}
-          <a href="#contact" className={`${btnPrimary} ml-3 !py-2`}>Get in Touch</a>
+          <Button asChild className="ml-4"><a href={`mailto:${identity.email}`}>Let’s Talk <span aria-hidden>↗</span></a></Button>
         </div>
-        <button
-          className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card md:hidden"
+        <Button variant="outline" size="icon"
+          className="grid h-10 w-10 place-items-center rounded-md border border-border bg-card md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -68,10 +69,10 @@ export function Header() {
             <span className={`absolute left-0 top-1.5 h-0.5 w-4 rounded bg-foreground transition ${open ? "opacity-0" : ""}`} />
             <span className={`absolute left-0 h-0.5 w-4 rounded bg-foreground transition ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
           </span>
-        </button>
+        </Button>
       </nav>
       {open && (
-        <div id="mobile-nav" className="border-t border-border bg-background md:hidden animate-in slide-in-from-top-2 fade-in duration-200">
+        <div id="mobile-nav" className="border-t border-border bg-background md:hidden">
           <div className="container-page flex flex-col py-3">
             {links.map((l) => (
               <a key={l.id} href={`#${l.id}`} onClick={() => setOpen(false)} className="rounded-lg px-2 py-3 font-medium hover:bg-surface">

@@ -29,4 +29,6 @@ use the editor.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
 
-- Portfolio content (projects, skills, screenshots, placeholder contact links) lives in src/components/portfolio/data.ts so copy and assets are edited in one place.
+- Portfolio content (projects, skills, screenshots, identity, career narrative and contact links) lives in src/components/portfolio/data.ts so copy and assets are edited in one place.
+
+- Use the shared design-system Button for portfolio controls and semantic global color tokens for editorial styling; this keeps interactions and theming consistent.

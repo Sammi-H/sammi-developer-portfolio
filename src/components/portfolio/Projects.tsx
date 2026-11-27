@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { nexaShots, naturlyShots, chefShots, type Shot } from "./data";
+import { Button } from "@/components/ui/button";
+import { nexaShots, naturlyShots, chefShots, projectLinks, type Shot } from "./data";
 import { Lightbox } from "./Lightbox";
-import { btnPrimary, btnSecondary, Arrow, SectionHeader, Tag, Screenshot, FeatureList, InfoBlock } from "./ui";
+import { Arrow, SectionHeader, Tag, Screenshot, FeatureList, InfoBlock } from "./ui";
 
 function useLightbox() {
   const [index, setIndex] = useState<number | null>(null);
@@ -15,12 +16,12 @@ function Stack({ items }: { items: string[] }) {
 function ProjectHead({ num, label, title, subtitle, desc }: { num: string; label: string; title: string; subtitle: string; desc: string }) {
   return (
     <div>
-      <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
+      <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-normal">
         <span className="font-mono text-primary">{num}</span>
         <span className="h-px w-8 bg-border" />
         <span className="text-muted-foreground">{label}</span>
       </div>
-      <h3 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">{title}</h3>
+      <h3 className="mt-4 text-3xl font-bold tracking-normal md:text-4xl">{title}</h3>
       <p className="mt-1.5 text-lg font-medium text-primary">{subtitle}</p>
       <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{desc}</p>
     </div>
@@ -30,8 +31,9 @@ function ProjectHead({ num, label, title, subtitle, desc }: { num: string; label
 function Nexa() {
   const lb = useLightbox();
   const [main, ...rest] = nexaShots as [Shot, ...Shot[]];
+  if (!main) return null;
   return (
-    <article className="rounded-3xl border border-border bg-card p-5 shadow-soft md:p-10 lg:p-12">
+    <article id="nexa-iq" className="border-t border-border pt-8 md:pt-10">
       <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
         <ProjectHead
           num="01"
@@ -42,20 +44,20 @@ function Nexa() {
         />
         <div className="lg:text-right">
           <p className="text-xl font-semibold italic text-foreground">“Stop searching. Start discovering.”</p>
-          <a href="https://nexa-iq-seven.vercel.app/" target="_blank" rel="noreferrer" className={`group mt-5 ${btnPrimary}`}>
-            View Live Project <Arrow />
-          </a>
+          <Button asChild className="group mt-5 h-11 px-5"><a href={projectLinks.nexa}>
+            Explore Project <Arrow />
+          </a></Button>
         </div>
       </div>
 
-      <div className="mt-10 rounded-2xl bg-surface p-3 md:p-6">
+      <div className="mt-10">
         <Screenshot shot={main} onOpen={() => lb.setIndex(0)} priority />
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
           {rest.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i + 1)} chrome={false} />)}
         </div>
       </div>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+      <div id="nexa-case-study" className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <div className="space-y-10">
           <InfoBlock label="Overview">
             <div className="space-y-3 leading-relaxed text-muted-foreground">
@@ -91,7 +93,7 @@ function Nexa() {
 function Naturly() {
   const lb = useLightbox();
   return (
-    <article className="grid gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
+    <article id="naturly" className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
       <div className="space-y-8 lg:sticky lg:top-24 lg:self-start">
         <ProjectHead
           num="02"
@@ -110,21 +112,21 @@ function Naturly() {
         <InfoBlock label="Technology">
           <Stack items={["Next.js", "React", "JavaScript", "TypeScript", "HTML5", "CSS", "MongoDB", "React Context API", "Next.js API routes"]} />
         </InfoBlock>
-        <a href="https://github.com/Sammi-H/Naturly-Airbnb" target="_blank" rel="noreferrer" className={`group ${btnSecondary}`}>
+        <Button asChild variant="outline" className="group h-11"><a href={projectLinks.naturly} target="_blank" rel="noreferrer">
           View on GitHub <Arrow />
-        </a>
+        </a></Button>
       </div>
 
       <div className="space-y-8">
         <ol className="grid grid-cols-2 gap-2 text-xs font-medium text-muted-foreground sm:grid-cols-4">
           {naturlyShots.map((s, i) => (
-            <li key={s.title} className="rounded-lg border border-border bg-card px-3 py-2">
+            <li key={s.title} className="border-b border-border py-2">
               <span className="font-mono text-primary">{i + 1}.</span> {s.title}
             </li>
           ))}
         </ol>
         {naturlyShots.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />)}
-        <div className="grid gap-6 rounded-2xl border border-border bg-surface p-6 md:grid-cols-2">
+        <div className="grid gap-6 border-t border-border pt-6 md:grid-cols-2">
           <InfoBlock label="Booking functionality">
             <p className="text-sm leading-relaxed text-muted-foreground">
               Choose dates and guests, review details and complete a simulated booking. The summary shows price per night, number of nights and total. Payment methods are shown in the interface, but payment is simulated — no real payment processing.
@@ -145,7 +147,7 @@ function Naturly() {
 function Chef() {
   const lb = useLightbox();
   return (
-    <article className="rounded-3xl border border-border bg-surface p-5 md:p-10">
+    <article id="virtual-chef" className="border-t border-border pt-10">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-14">
         <div className="space-y-7">
           <ProjectHead
@@ -164,9 +166,9 @@ function Chef() {
           <InfoBlock label="Technology">
             <Stack items={["HTML5", "CSS3", "JavaScript", "Spoonacular API", "REST API integration", "DOM manipulation", "Async data handling", "Event handling"]} />
           </InfoBlock>
-          <a href="https://github.com/Sammi-H/Virtual-Chef" target="_blank" rel="noreferrer" className={`group ${btnSecondary}`}>
+          <Button asChild variant="outline" className="group h-11"><a href={projectLinks.chef} target="_blank" rel="noreferrer">
             View on GitHub <Arrow />
-          </a>
+          </a></Button>
         </div>
         <div className="space-y-6">
           {chefShots.map((s, i) => <Screenshot key={s.title} shot={s} onOpen={() => lb.setIndex(i)} />)}
@@ -179,10 +181,10 @@ function Chef() {
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28">
+    <section id="projects" className="bg-card py-16 md:py-24">
       <div className="container-page">
         <SectionHeader
-          eyebrow="Projects"
+          eyebrow="03 / Projects"
           title="Selected Projects"
           intro="A selection of applications I’ve designed and developed, exploring different aspects of frontend and full-stack development."
         />

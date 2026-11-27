@@ -9,10 +9,35 @@ import natBooking from "@/assets/projects/naturly-bookingsoverview.png.asset.jso
 import vcResults from "@/assets/projects/virtualchef-searchresults.png.asset.json";
 import vcDetail from "@/assets/projects/virtualchef-recipedetails.webp.asset.json";
 
-export const GITHUB_URL = "https://github.com/Sammi-H";
-// Placeholders — replace with real contact details.
-export const EMAIL_PLACEHOLDER = "your.email@example.com";
-export const LINKEDIN_PLACEHOLDER = "https://www.linkedin.com/in/your-profile";
+export const identity = {
+  name: "Sammi Habib",
+  email: "sammi83@live.se",
+  linkedin: "https://www.linkedin.com/in/sammi-habib-912b713a/",
+  role: "Frontend & Full-Stack Developer",
+};
+export const projectLinks = {
+  nexa: "#nexa-case-study",
+  naturly: "https://github.com/Sammi-H/Naturly-Airbnb",
+  chef: "https://github.com/Sammi-H/Virtual-Chef",
+};
+export const heroDescription = "I build modern web applications with a focus on clean interfaces, thoughtful user experiences and practical solutions. Combining my background in complex business environments with modern web development, I enjoy turning ideas into functional digital products.";
+export const journey = [
+  {
+    label: "Professional foundation",
+    title: "Business experience. Technical perspective.",
+    description: "Approximately 13 years in banking and finance, working with complex business systems, technical support, implementation and process-driven environments. This experience shaped my approach to structure, reliability and understanding the needs behind a product.",
+  },
+  {
+    label: "A deliberate new direction",
+    title: "From automation to web development.",
+    description: "As a Robotics Process Automation Analyst & Developer, I explored automation and business processes. I consciously chose to leave that career path and focus on the software I wanted to build: modern web applications, intuitive interfaces and complete digital products.",
+  },
+  {
+    label: "My focus today",
+    title: "Building products. Continuing to grow.",
+    description: "I completed my Frontend Developer education at KYH, gaining practical experience through education, an internship and independent projects with React, Next.js and JavaScript. Today, I’m focused on intuitive, well-structured applications and growing as a frontend and full-stack developer.",
+  },
+];
 
 export type Shot = { src: string; title: string; caption: string; w: number; h: number };
 
@@ -31,8 +56,8 @@ export const naturlyShots: Shot[] = [
 ];
 
 export const chefShots: Shot[] = [
-  { src: vcResults.url, title: "Search Results", caption: "Recipe suggestions with images after entering ingredients.", w: 1920, h: 1013 },
-  { src: vcDetail.url, title: "Recipe Details", caption: "Individual recipe with information and cooking instructions.", w: 1920, h: 943 },
+  { src: vcResults.url, title: "Search Item", caption: "Recipe suggestions with images after entering ingredients.", w: 1920, h: 1013 },
+  { src: vcDetail.url, title: "Search Detail", caption: "Individual recipe with information and cooking instructions.", w: 1920, h: 943 },
 ];
 
 export const skills = [
