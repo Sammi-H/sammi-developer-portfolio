@@ -46,28 +46,28 @@ export type Shot = {
 
 export const nexaShots: Shot[] = [
   {
-    src: "/nexaiq-mainpage.png",
+    src: "/NexaIQ_MainPage.png",
     title: "Main Page",
     caption: "The landing page introducing the platform.",
     w: 1920,
     h: 936,
   },
   {
-    src: "/nexaiq-leadsearch.png",
+    src: "/NexaIQ_LeadSearch.png",
     title: "Lead Search",
     caption: "Product-value page explaining the platform's approach and benefits.",
     w: 1920,
     h: 833,
   },
   {
-    src: "/nexaiq-leadlist.png",
+    src: "/NexaIQ_LeadList.png",
     title: "Lead List",
     caption: "Search results interface showing businesses returned from a search.",
     w: 1920,
     h: 938,
   },
   {
-    src: "/nexaiq-pricing.png",
+    src: "/NexaIQ_Pricing.png",
     title: "Pricing & Plans",
     caption: "Three packages: Starter, Growth and Professional.",
     w: 1920,
@@ -77,28 +77,28 @@ export const nexaShots: Shot[] = [
 
 export const naturlyShots: Shot[] = [
   {
-    src: "/naturly-homepage.png",
+    src: "/Naturly_Homepage.png",
     title: "Homepage",
     caption: "Landing page with destination search.",
     w: 1920,
     h: 887,
   },
   {
-    src: "/naturly-listings.png",
+    src: "/Naturly_Listings.png",
     title: "Listings",
     caption: "Browsing accommodation.",
     w: 1920,
     h: 865,
   },
   {
-    src: "/naturly-petfriendly.png",
+    src: "/Naturly_PetFriendly.png",
     title: "Hundvänliga boenden",
     caption: "Pet-friendly accommodation marked with paw indicators.",
     w: 1920,
     h: 992,
   },
   {
-    src: "/naturly-bookingsoverview.png",
+    src: "/Naturly_BookingsOverview.png",
     title: "Bookings Overview",
     caption: "Booking summary right before completing a booking.",
     w: 1920,
@@ -108,14 +108,14 @@ export const naturlyShots: Shot[] = [
 
 export const chefShots: Shot[] = [
   {
-    src: "/virtualchef-searchresults.png",
+    src: "/VirtualChef_SearchResults.png",
     title: "Search Item",
     caption: "Recipe suggestions with images after entering ingredients.",
     w: 1920,
     h: 1013,
   },
   {
-    src: "/virtualchef-recipedetails.webp",
+    src: "/VirtualChef_RecipeDetails.png",
     title: "Search Detail",
     caption: "Individual recipe with information and cooking instructions.",
     w: 1920,
